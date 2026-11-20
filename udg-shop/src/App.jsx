@@ -1,64 +1,71 @@
-import { useState } from 'react';
-import './App.css';
 
-function Header (){
+import './App.css';
+import productes from './data/products.json';
+
+function Header() {
   return (
     <div className="Cap">
-      <h1>Header One</h1>
+      <h1>Welcome to the Shop UdG</h1>
     </div>
   );
 }
 
-function ProductList (){
+function ProductList() {
   return (
     <div className="PL">
-      <ProductCard/>
+      <h3>Productes Disponibles</h3>
+
+      <div className="productes">
+        {productes.map((producte) => (
+          <ProductCard
+            key={producte.id}
+            producte={producte}
+          />
+        ))}
+      </div>
     </div>
   );
 }
 
-function ProductCard (){
+function ProductCard({ producte }) {
   return (
     <div className="cart">
-      <p>Samarreta</p>
-      <p>€ 20</p>
-      <p>Samarreta</p>
+      <h4>{producte.name}</h4>
+      <p>{producte.price} €</p>
+      <button>Afegir al carretó</button>
     </div>
   );
 }
 
-function Cart (){
+function Cart() {
   return (
-    <div className="PL">
-      <p>Samarreta</p>
-      <p>Samarreta</p>
-      <p>Samarreta</p>
+    <div className="cistella">
+      <h3>Cistella</h3>
     </div>
   );
 }
 
-function Footer (){
+function Footer() {
   return (
     <div className="Peu">
-      <p>(c)</p>
+      <p>© 2025 Shop UdG</p>
     </div>
   );
 }
 
 function App() {
-
   return (
     <div className="App">
-      <Header/>
+      <Header />
 
-      <ProductList/>
+      <div className="contingut">
+        <ProductList />
+        <Cart />
+      </div>
 
-      <Cart/>
-
-      <Footer/>
+      <Footer />
     </div>
   );
 }
 
 export default App;
-
