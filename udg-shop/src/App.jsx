@@ -1,4 +1,5 @@
 
+import { useState } from 'react';
 import './App.css';
 import productes from './data/products.json';
 
@@ -10,37 +11,42 @@ function Header() {
   );
 }
 
-function ProductList() {
+function ProductList(props) {
   return (
     <div className="PL">
-      <h3>Productes Disponibles</h3>
+      <h3>Productes</h3>
 
-      <div className="productes">
-        {productes.map((producte) => (
-          <ProductCard
-            key={producte.id}
-            producte={producte}
-          />
-        ))}
-      </div>
+      {productes.map((p) => (
+        <ProductCard
+          key={p.id}
+          props={{ p: p, a: props.a }}
+        />
+      ))}
     </div>
   );
 }
 
-function ProductCard({ producte }) {
+function ProductCard({ props }) {
   return (
     <div className="cart">
-      <h4>{producte.name}</h4>
-      <p>{producte.price} €</p>
-      <button>Afegir al carretó</button>
+      <h4>{props.p.name}</h4>
+      <p>{props.p.price} €</p>
+
+      <button onClick={() => { props.a() }}>
+        Afegir al carretó
+      </button>
     </div>
   );
 }
 
-function Cart() {
+function Cart(props) {
   return (
     <div className="cistella">
       <h3>Cistella</h3>
+
+      {props.cart.map((p, index) => (
+        <p key={index}>{p}</p>
+      ))}
     </div>
   );
 }
@@ -48,19 +54,25 @@ function Cart() {
 function Footer() {
   return (
     <div className="Peu">
-      <p>© 2025 Shop UdG</p>
+      <p>© Shop UdG</p>
     </div>
   );
 }
 
 function App() {
+  const [cart, updateCart] = useState([]);
+
+  const addProduct = () => {
+    updateCart(["it", "works"]);
+  };
+
   return (
     <div className="App">
       <Header />
 
       <div className="contingut">
-        <ProductList />
-        <Cart />
+        <ProductList a={addProduct} />
+        <Cart cart={cart} />
       </div>
 
       <Footer />
