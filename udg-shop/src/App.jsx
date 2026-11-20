@@ -44,9 +44,11 @@ function Cart(props) {
     <div className="cistella">
       <h3>Cistella</h3>
 
-      {props.cart.map((p, index) => (
-        <p key={index}>{p}</p>
+      {props.cart.map((elem) => (
+        <p> {elem.name} - {elem.price} €</p>
       ))}
+
+      <p> Total {props.cart.reduce( (sum, elem) => sum + elem.price, 0)} €</p>
     </div>
   );
 }
@@ -63,7 +65,7 @@ function App() {
   const [cart, updateCart] = useState([]);
 
   const addProduct = (p) => {
-    updateCart([...cart, p.name]);
+    updateCart([...cart, p]);
   };
 
   return (
