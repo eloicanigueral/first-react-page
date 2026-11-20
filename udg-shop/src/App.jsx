@@ -19,7 +19,7 @@ function ProductList (){
 
 function ProductCard (){
   return (
-    <div className="card">
+    <div className="cart">
       <p>Samarreta</p>
       <p>€ 20</p>
       <p>Samarreta</p>
