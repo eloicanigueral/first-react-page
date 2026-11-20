@@ -32,7 +32,7 @@ function ProductCard({ props }) {
       <h4>{props.p.name}</h4>
       <p>{props.p.price} €</p>
 
-      <button onClick={() => { props.a() }}>
+      <button onClick={() => { props.a(props.p) }}>
         Afegir al carretó
       </button>
     </div>
@@ -62,8 +62,8 @@ function Footer() {
 function App() {
   const [cart, updateCart] = useState([]);
 
-  const addProduct = () => {
-    updateCart(["it", "works"]);
+  const addProduct = (p) => {
+    updateCart([...cart, p.name]);
   };
 
   return (
