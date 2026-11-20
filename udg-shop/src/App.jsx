@@ -16,10 +16,10 @@ function ProductList(props) {
     <div className="PL">
       <h3>Productes</h3>
 
-      {productes.map((p) => (
-        <ProductCard
-          key={p.id}
-          props={{ p: p, a: props.a }}
+      {productes.map((p, index) => (<ProductCard
+          key={index}
+          p = {p}
+          props={{ p: p, a: props.a }} //aixo nose si ho te el profe
         />
       ))}
     </div>
@@ -44,8 +44,8 @@ function Cart(props) {
     <div className="cistella">
       <h3>Cistella</h3>
 
-      {props.cart.map((elem) => (
-        <p> {elem.name} - {elem.price} €</p>
+      {props.cart.map((elem, index) => (
+        <p key={index}> {elem.name} - {elem.price} €</p>
       ))}
 
       <p> Total {props.cart.reduce( (sum, elem) => sum + elem.price, 0)} €</p>
