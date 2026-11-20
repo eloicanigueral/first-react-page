@@ -1,0 +1,67 @@
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-header {
+  background-color: #1a237e;
+  color: white;
+  padding: 1rem;
+}
+
+.main-header h1{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: white
+}
+
+.main-layout {
+  display: flex;
+  flex: 1;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.product-section {
+  flex: 2;
+}
+
+.cart-section {
+  flex: 1;
+  background: #f7f7f7;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.product-card {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+button {
+  background-color: #1a237e;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #121858;
+}
+
+.main-footer {
+  background-color: #2e2e2e;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
