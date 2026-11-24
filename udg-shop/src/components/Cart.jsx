@@ -12,6 +12,8 @@ function Cart( props ) {
           {props.cart.map((item, index) => (
             <li key={index}>
               {item.quantity}x {item.name} - {item.price} €
+              <span> </span>
+              <button onClick={()=>props.quit(item)}>-</button>
             </li>
           ))}
         </ul>

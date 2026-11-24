@@ -15,8 +15,18 @@ function App() {
       setCart( cart.map((p) => (p.id === product.id ? {...p, quantity: p.quantity + 1} : p)));
     } else { //if not, we create another
       setCart([...cart, { ...product, quantity: 1 }]);
-    }
+    }    
   };
+  
+  const removeItem = (product) => {
+    if (product.quantity>1){
+      setCart(cart.map((p) => (p.id === product.id ? {...p, quantity: p.quantity - 1} : p)));
+    }
+    else {
+      setCart(cart.filter((p) => p.id !== product.id));
+    }
+
+  }
 
 
   return (
@@ -25,10 +35,10 @@ function App() {
 
       <main className="main-layout">
         <section className="product-section">
-          <ProductList onAdd={addToCart} />
+          <ProductList onAdd={addToCart}/>
         </section>
         <aside className="cart-section">
-          <Cart cart={cart} />
+          <Cart cart={cart} quit={removeItem}/>
         </aside>
       </main>
 
