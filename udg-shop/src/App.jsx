@@ -28,10 +28,6 @@ function App() {
 
   }
 
-  const addItem = (product) => {
-      setCart(cart.map((p) => (p.id === product.id ? {...p, quantity: p.quantity + 1} : p)));
-    }
-
 
   return (
     <div className="App">
@@ -42,7 +38,7 @@ function App() {
           <ProductList onAdd={addToCart}/>
         </section>
         <aside className="cart-section">
-          <Cart cart={cart} quit={removeItem} add={addItem}/>
+          <Cart cart={cart} quit={removeItem} add={addToCart}/>
         </aside>
       </main>
 

@@ -13,9 +13,8 @@ function Cart( props ) {
             <li key={index}>
               {item.quantity}x {item.name} - {item.price} €
               <span> </span>
-              <button onClick={()=>props.quit(item)}>-</button>
-              <span> </span>
-              <button onClick={()=>props.add(item)}>+</button>
+              <button className="cart-button" onClick={()=>props.quit(item)}>-</button>
+              <button className="cart-button" onClick={()=>props.add(item)}>+</button>
             </li>
           ))}
         </ul>

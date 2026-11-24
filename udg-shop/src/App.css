@@ -59,6 +59,12 @@ button:hover {
   background-color: #121858;
 }
 
+.cart-button{
+  padding: 0.1rem 0.5em;
+  font-size: 0.8rem;
+  margin-left: 0.5rem;
+}
+
 .main-footer {
   background-color: #2e2e2e;
   color: white;
