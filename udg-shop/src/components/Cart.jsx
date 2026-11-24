@@ -1,6 +1,6 @@
 
 function Cart( props ) {
-  const total = props.cart.reduce((sum, item) => sum + item.price, 0);
+  const total = props.cart.reduce((sum, item) => sum + item.price*item.quantity, 0);
 
   return (
     <div>
@@ -11,7 +11,7 @@ function Cart( props ) {
         <ul>
           {props.cart.map((item, index) => (
             <li key={index}>
-              {item.name} - {item.price} €
+              {item.quantity}x {item.name} - {item.price} €
             </li>
           ))}
         </ul>
