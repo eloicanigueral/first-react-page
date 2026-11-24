@@ -23,10 +23,14 @@ function App() {
       setCart(cart.map((p) => (p.id === product.id ? {...p, quantity: p.quantity - 1} : p)));
     }
     else {
-      setCart(cart.filter((p) => p.id !== product.id));
+      setCart(cart.filter((p) => p.id !== product.id)); //it let pass all the prodcuts that are not the one we want to delete
     }
 
   }
+
+  const addItem = (product) => {
+      setCart(cart.map((p) => (p.id === product.id ? {...p, quantity: p.quantity + 1} : p)));
+    }
 
 
   return (
@@ -38,7 +42,7 @@ function App() {
           <ProductList onAdd={addToCart}/>
         </section>
         <aside className="cart-section">
-          <Cart cart={cart} quit={removeItem}/>
+          <Cart cart={cart} quit={removeItem} add={addItem}/>
         </aside>
       </main>
 

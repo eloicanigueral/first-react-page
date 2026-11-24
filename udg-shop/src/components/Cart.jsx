@@ -14,6 +14,8 @@ function Cart( props ) {
               {item.quantity}x {item.name} - {item.price} €
               <span> </span>
               <button onClick={()=>props.quit(item)}>-</button>
+              <span> </span>
+              <button onClick={()=>props.add(item)}>+</button>
             </li>
           ))}
         </ul>
